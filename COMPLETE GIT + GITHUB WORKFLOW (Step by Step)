@@ -1,0 +1,100 @@
+# ==========================================
+# 🏁 STEP 1: INITIAL SETUP
+# ==========================================
+
+git config --global user.name "Your Name"            # Set your Git username
+git config --global user.email "you@example.com"     # Set your Git email
+git config --list                                   # Verify settings
+
+# ==========================================
+# 🧱 STEP 2: CREATE OR CLONE REPOSITORY
+# ==========================================
+
+# OPTION A: Clone an existing repo from GitHub
+git clone https://github.com/your-username/my-repo.git
+
+# OPTION B: Initialize a new local repo
+mkdir my-repo
+cd my-repo
+git init                                            # Create a new Git repo
+
+# Link to GitHub (only for new repos)
+git remote add origin https://github.com/your-username/my-repo.git
+
+# ==========================================
+# 📦 STEP 3: CHECK STATUS & INITIAL COMMIT
+# ==========================================
+
+git status                                          # See which files are new/modified
+git add .                                           # Stage all files
+git commit -m "Initial commit"                      # Save snapshot
+
+git push -u origin main                             # Push main branch to GitHub
+
+# ==========================================
+# 🌿 STEP 4: CREATE FIRST BRANCH (feature1)
+# ==========================================
+
+git checkout -b feature1                            # Create and switch to new branch
+
+# Make your code or file changes here...
+
+git add .                                           # Stage changes
+git commit -m "Add feature1 updates"                # Commit changes
+git push -u origin feature1                         # Push new branch to GitHub
+
+# ==========================================
+# 🌿 STEP 5: CREATE SECOND BRANCH (feature2)
+# ==========================================
+
+git switch main                                     # Go back to main branch
+git checkout -b feature2                            # Create and switch to new branch
+
+# Make another set of changes...
+
+git add .
+git commit -m "Add feature2 updates"
+git push -u origin feature2                         # Push to GitHub
+
+# ==========================================
+# 🔁 STEP 6: MERGE BRANCHES INTO MAIN
+# ==========================================
+
+git switch main                                     # Switch to main branch
+git pull origin main                                # Make sure main is up-to-date
+
+# Merge feature1 into main
+git merge feature1
+
+# If you get "Fast-forward" or "Already up to date" → OK
+# If conflicts appear, resolve them manually, then:
+
+git add .
+git commit -m "Resolve merge conflicts from feature1"
+
+# Merge feature2 into main
+git merge feature2
+
+# Commit if necessary
+git add .
+git commit -m "Merge feature2 into main"
+
+# Push updated main to GitHub
+git push origin main
+
+# ==========================================
+# 🧹 STEP 7: CLEANUP BRANCHES
+# ==========================================
+
+git branch -d feature1                              # Delete local branch
+git branch -d feature2
+
+git push origin --delete feature1                   # Delete from GitHub
+git push origin --delete feature2
+
+# ==========================================
+# 🔍 STEP 8: CHECK HISTORY
+# ==========================================
+
+git log --oneline --graph --decorate --all          # Visual history of all branches
+git status                                          # Confirm you’re on main and clean
