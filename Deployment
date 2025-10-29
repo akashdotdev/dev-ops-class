@@ -1,0 +1,44 @@
+# 1. Navigate to your project folder (or create one)
+mkdir my-project         # Create a new folder (skip if you already have one)
+cd my-project            # Navigate into the folder
+
+# 2. Initialize Git in the folder
+git init                 # Creates a local Git repository
+
+# 3. Create a README file (optional but recommended)
+echo "# My Project" >> README.md
+
+# 4. Optional: Create a .gitignore file to exclude unwanted files
+touch .gitignore
+# Example .gitignore content:
+# node_modules/
+# *.log
+# .DS_Store
+
+# 5. Stage all files for commit
+git add .
+
+# 6. Commit the staged files
+git commit -m "Initial commit"
+
+# 7. Create a repository on GitHub via browser
+#    Copy the repository URL (HTTPS recommended)
+#    Example: https://github.com/username/my-project.git
+
+# 8. Link your local repository to the GitHub repository
+git remote add origin https://github.com/username/my-project.git
+
+# 9. Rename your branch to main (if necessary)
+git branch -M main
+
+# 10. Push your code to GitHub (deploy)
+git push -u origin main
+
+# 11. Workflow for future updates:
+# After editing/adding files:
+git add .                        # Stage new or updated files
+git commit -m "Describe changes" # Commit changes
+git push                          # Push changes to GitHub
+
+# 12. Pull updates from GitHub (if collaborating)
+git pull origin main              # Fetch and merge changes from remote
