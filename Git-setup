@@ -1,0 +1,103 @@
+# ==========================
+# 🏁 1. Setup & Configuration
+# ==========================
+
+git config --global user.name "Your Name"             # Set your Git username
+git config --global user.email "you@example.com"      # Set your Git email (matches GitHub)
+git config --global core.editor "code --wait"         # Optional: set VS Code as editor
+git config --list                                     # Check your global Git settings
+
+
+# ==========================
+# 📦 2. Starting a Repository
+# ==========================
+
+git init                                              # Initialize a new local Git repository
+git clone https://github.com/username/repo.git        # Clone an existing GitHub repo
+
+
+# ==========================
+# 🧭 3. Basic Workflow
+# ==========================
+
+git status                                            # Show changes and current branch
+git diff                                              # Show unstaged changes
+git add <file>                                        # Stage a specific file
+git add .                                             # Stage all modified and new files
+git commit -m "Commit message"                        # Commit staged changes with a message
+git log --oneline                                     # View commit history (simplified)
+
+
+# ==========================
+# 🌿 4. Branching & Merging
+# ==========================
+
+git branch                                            # List all local branches
+git branch <branch-name>                              # Create a new branch
+git checkout <branch-name>                            # Switch to a branch
+git switch <branch-name>                              # Alternative modern switch command
+git checkout -b <branch-name>                         # Create and switch to new branch
+git merge <branch-name>                               # Merge a branch into the current branch
+git branch -d <branch-name>                           # Delete a local branch
+
+
+# ==========================
+# ☁️ 5. Working with GitHub
+# ==========================
+
+git remote add origin https://github.com/username/repo.git   # Link local repo to GitHub
+git remote -v                                         # Show linked remote URLs
+git push -u origin <branch-name>                      # Push branch to GitHub (set upstream)
+git push                                              # Push changes to the current branch
+git pull origin <branch-name>                         # Pull latest changes from GitHub
+git fetch                                             # Fetch all branches and commits (no merge)
+
+
+# ==========================
+# 🧹 6. Undoing Changes
+# ==========================
+
+git reset <file>                                      # Unstage a file (keep changes)
+git reset --soft HEAD~1                               # Undo last commit, keep changes staged
+git restore .                                         # Discard all uncommitted local changes
+git revert <commit-hash>                              # Revert a commit safely (creates new commit)
+
+
+# ==========================
+# 🕵️ 7. Viewing History
+# ==========================
+
+git log                                               # Full commit history
+git log --oneline --graph --decorate                  # Compact visual history
+git show <commit-hash>                                # Show details of a specific commit
+git blame <file>                                      # Show who changed each line of a file
+
+
+# ==========================
+# 🧩 8. Stashing (Temporary Save)
+# ==========================
+
+git stash                                             # Temporarily save changes (not committed)
+git stash list                                        # View all stashes
+git stash pop                                         # Reapply last stashed changes and remove from list
+git stash clear                                       # Delete all stashed changes
+
+
+# ==========================
+# 🧰 9. Tags (for releases)
+# ==========================
+
+git tag v1.0                                          # Create a lightweight tag
+git tag -a v1.0 -m "Version 1.0 release"              # Create an annotated tag
+git push origin v1.0                                  # Push a tag to GitHub
+git tag                                               # List all tags
+
+
+# ==========================
+# 🔄 10. Syncing Forks / Upstream
+# ==========================
+
+git remote add upstream https://github.com/original/repo.git   # Add original repo as upstream
+git fetch upstream                                             # Fetch changes from upstream repo
+git merge upstream/main                                        # Merge upstream updates into your branch
+git push origin main                                           # Push updates to your GitHub fork
